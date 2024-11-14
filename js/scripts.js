@@ -1,134 +1,5 @@
-// SIDEBAR TOGGLE
-
-let sidebarOpen = false;
-const sidebar = document.getElementById('sidebar');
-
-function openSidebar() {
-  if (!sidebarOpen) {
-    sidebar.classList.add('sidebar-responsive');
-    sidebarOpen = true;
-  }
-}
-
-function closeSidebar() {
-  if (sidebarOpen) {
-    sidebar.classList.remove('sidebar-responsive');
-    sidebarOpen = false;
-  }
-}
-
 // ---------- CHARTS ----------
 
-// BAR CHART
-const barChartOptions = {
-  series: [
-    {
-      data: [10, 8, 6, 4, 2],
-      name: 'Products',
-    },
-  ],
-  chart: {
-    type: 'bar',
-    background: 'transparent',
-    height: 350,
-    toolbar: {
-      show: false,
-    },
-  },
-  colors: ['#2962ff', '#d50000', '#2e7d32', '#ff6d00', '#583cb3'],
-  plotOptions: {
-    bar: {
-      distributed: true,
-      borderRadius: 4,
-      horizontal: false,
-      columnWidth: '40%',
-    },
-  },
-  dataLabels: {
-    enabled: false,
-  },
-  fill: {
-    opacity: 1,
-  },
-  grid: {
-    borderColor: '#55596e',
-    yaxis: {
-      lines: {
-        show: true,
-      },
-    },
-    xaxis: {
-      lines: {
-        show: true,
-      },
-    },
-  },
-  legend: {
-    labels: {
-      colors: '#f5f7ff',
-    },
-    show: true,
-    position: 'top',
-  },
-  stroke: {
-    colors: ['transparent'],
-    show: true,
-    width: 2,
-  },
-  tooltip: {
-    shared: true,
-    intersect: false,
-    theme: 'dark',
-  },
-  xaxis: {
-    categories: ['Bulldog', 'Golden', 'American Bully', 'Pastor Alemão', 'Pinscher'],
-    title: {
-      style: {
-        color: '#f5f7ff',
-      },
-    },
-    axisBorder: {
-      show: true,
-      color: '#55596e',
-    },
-    axisTicks: {
-      show: true,
-      color: '#55596e',
-    },
-    labels: {
-      style: {
-        colors: '#f5f7ff',
-      },
-    },
-  },
-  yaxis: {
-    title: {
-      text: 'Count',
-      style: {
-        color: '#f5f7ff',
-      },
-    },
-    axisBorder: {
-      color: '#55596e',
-      show: true,
-    },
-    axisTicks: {
-      color: '#55596e',
-      show: true,
-    },
-    labels: {
-      style: {
-        colors: '#f5f7ff',
-      },
-    },
-  },
-};
-
-const barChart = new ApexCharts(
-  document.querySelector('#bar-chart'),
-  barChartOptions
-);
-barChart.render();
 
 
 
@@ -255,3 +126,119 @@ const areaChart = new ApexCharts(
 );
 areaChart.render();
 
+// ADOPTION CHART
+const adoptionChartOptions = {
+  series: [64, 36],
+  chart: {
+    type: 'pie',
+    height: 350,
+  },
+  labels: ['Cães', 'Gatos'],
+  colors: ['#FF6B00', '#000000'],
+};
+
+const adoptionChart = new ApexCharts(
+  document.querySelector('#adoption-chart'),
+  adoptionChartOptions
+);
+adoptionChart.render();
+
+// AVAILABLE ANIMALS CHART
+const availableAnimalsChartOptions = {
+  series: [102],
+  chart: {
+    type: 'radialBar',
+    height: 350,
+  },
+  plotOptions: {
+    radialBar: {
+      hollow: {
+        size: '70%',
+      },
+      dataLabels: {
+        show: true,
+        name: {
+          offsetY: -10,
+          show: true,
+          color: '#888',
+          fontSize: '13px'
+        },
+        value: {
+          color: '#111',
+          fontSize: '30px',
+          show: true,
+        }
+      }
+    }
+  },
+  labels: ['Animais disponíveis'],
+  colors: ['#FF6B00'],
+};
+
+
+
+const availableAnimalsChart = new ApexCharts(
+  document.querySelector('#available-animals-chart'),
+  availableAnimalsChartOptions
+);
+availableAnimalsChart.render();
+
+// BREEDS CHART (atualizado para gráfico de barras verticais)
+const breedsChartOptions = {
+  series: [{
+    name: 'Quantidade',
+    data: [25, 15, 10, 8, 2]
+  }],
+  chart: {
+    type: 'bar',
+    height: 350,
+
+  },
+  plotOptions: {
+    bar: {
+      borderRadius: 4,
+      horizontal: false,
+    }
+  },
+  dataLabels: {
+    enabled: false
+  },
+  xaxis: {
+    categories: ['Golden Retriever', 'Rottweilers', 'Husky', 'Pit Bull', 'Pastor Alemão'],
+  },
+  yaxis: {
+    title: {
+      text: 'Quantidade'
+    }
+  },
+  colors: ['#FF6B00', '#FF8C00', '#FFA500', '#FFD700', '#FFFF00'],
+};
+
+const GraphicRaça = new ApexCharts(
+  document.querySelector('#raça-chart'),
+  breedsChartOptions
+);
+GraphicRaça.render();
+
+
+// DONATIONS CHART
+const donationsChartOptions = {
+  series: [{
+    name: 'Doações',
+    data: [11, 26, 17, 30, 37]
+  }],
+  chart: {
+    height: 350,
+    type: 'line',
+  },
+  xaxis: {
+    categories: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
+  },
+  colors: ['#FF6B00'],
+};
+
+const donationsChart = new ApexCharts(
+  document.querySelector('#donations-chart'),
+  donationsChartOptions
+);
+donationsChart.render();
