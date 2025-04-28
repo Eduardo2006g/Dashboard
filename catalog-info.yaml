@@ -11,5 +11,8 @@ spec:
   lifecycle: production
   owner: user:default/guest
   definition:
-    $text: >
-      https://open-meteo.com/en/docs
+    openapi: 3.0.0
+    info:
+      title: Open Meteo API
+      version: "1.0"
+    paths: {}
