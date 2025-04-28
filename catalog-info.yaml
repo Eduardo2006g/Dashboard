@@ -1,18 +1,16 @@
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: openweather-api
-  description: API pública para dados de clima e previsão do tempo.
+  name: swagger-petstore-api
+  description: API pública de exemplo da Swagger Petstore.
   tags:
     - public
-    - weather
+    - example
+    - swagger
 spec:
   type: openapi
   lifecycle: production
   owner: user:default/guest
   definition:
-    openapi: 3.0.0
-    info:
-      title: Open Meteo API
-      version: "1.0"
-    paths: {}
+    $text: >
+      https://petstore3.swagger.io/api/v3/openapi.yaml
