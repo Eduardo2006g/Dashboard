@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: openweather-api
+  description: API pública para dados de clima e previsão do tempo.
+  tags:
+    - public
+    - weather
+spec:
+  type: openapi
+  lifecycle: production
+  owner: user:default/guest
+  definition:
+    $text: >
+      https://open-meteo.com/en/docs
