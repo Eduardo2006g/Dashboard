@@ -1,3 +1,26 @@
+# catalog-info.yaml
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: swagger-petstore-service
+  description: Serviço que implementa a API pública da Swagger Petstore.
+  tags:
+    - example
+    - backend
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  lifecycle: production
+  owner: user:default/guest
+  providesApis:
+    - swagger-petstore-api
+
+---
+
+
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
